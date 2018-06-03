@@ -9,7 +9,7 @@ import org.apache.spark.api.java.function.Function;
 
 public class HelloSpark {
 	public static void main(String[] args) {
-		SparkConf conf = new SparkConf().setMaster("").setAppName("HelloSpark");
+		SparkConf conf = new SparkConf().setMaster("spark://quickstart.cloudera:7077").setAppName("HelloSpark");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		JavaRDD<String> lines = sc.textFile("README.md");
 		JavaRDD<String> helloLines =  lines.filter(
